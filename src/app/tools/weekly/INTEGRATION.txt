@@ -1,0 +1,248 @@
+# Integrating Weekly Timetable Component in Next.js 14.2.5
+
+## Prerequisites
+- Next.js 14.2.5 or higher
+- Node.js 18+ and npm/yarn
+- TypeScript support
+- Tailwind CSS installed
+
+## Step 1: Install Required Dependencies
+
+First, install shadcn/ui in your Next.js project:
+```bash
+npx shadcn-ui@latest init
+```
+
+Install required shadcn/ui components:
+```bash
+npx shadcn-ui@latest add button card checkbox dialog input label select toast
+```
+
+Install additional dependencies:
+```bash
+npm install lucide-react class-variance-authority clsx tailwind-merge
+```
+
+## Step 2: File Structure
+Copy this weekly folder to your Next.js project and organize as follows:
+
+```
+src/
+  app/
+    tools/
+      plangen/
+        page.tsx         # Main page component
+        layout.tsx       # Layout component
+  components/
+    plangen/
+      TimetableGrid.tsx  # Timetable grid component
+      ControlPanel.tsx   # Control panel component
+      SubjectModal.tsx   # Subject selection modal
+  lib/
+    plangen/
+      types.ts          # TypeScript types
+      subjects.ts       # Subject data
+      timeUtils.ts      # Time utilities
+```
+
+## Step 3: Create Layout Component
+
+Create `src/app/tools/plangen/layout.tsx`:
+```tsx
+export default function PlangenLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {children}
+    </div>
+  );
+}
+```
+
+## Step 4: Update Import Paths
+
+Update these imports in each component:
+
+TimetableGrid.tsx:
+```tsx
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import type { WeekSchedule } from "@/lib/plangen/types";
+```
+
+ControlPanel.tsx:
+```tsx
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Trash2, Plus } from "lucide-react";
+import { presetSubjects } from "@/lib/plangen/subjects";
+import type { CustomSubject } from "@/lib/plangen/types";
+```
+
+SubjectModal.tsx:
+```tsx
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import type { CustomSubject } from "@/lib/plangen/types";
+```
+
+## Step 5: Configure TypeScript
+
+Update your tsconfig.json:
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+```
+
+## Step 6: Update Tailwind Configuration
+
+Add to tailwind.config.ts:
+```typescript
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: "hsl(var(--primary))",
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
+```
+
+## Step 7: Add Optional Components
+
+Loading State (src/app/tools/plangen/loading.tsx):
+```tsx
+export default function Loading() {
+  return <div>Loading timetable...</div>;
+}
+```
+
+Error Boundary (src/app/tools/plangen/error.tsx):
+```tsx
+'use client';
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
+  );
+}
+```
+
+## Step 8: Add Metadata
+
+In src/app/tools/plangen/page.tsx:
+```tsx
+export const metadata = {
+  title: 'Timetable Creator',
+  description: 'Create and manage weekly class schedules',
+};
+```
+
+## Troubleshooting
+
+1. Hydration Errors:
+   - Ensure all interactive components have 'use client' directive
+   - Check that client-side components are properly marked
+
+2. Missing Styles:
+   - Verify shadcn/ui components are installed
+   - Check Tailwind configuration
+   - Ensure all CSS imports are present
+
+3. TypeScript Errors:
+   - Check import paths are correct
+   - Verify types are properly exported/imported
+   - Ensure tsconfig.json paths are correct
+
+## Usage
+
+After installation, the timetable will be available at:
+```
+http://your-domain/tools/plangen
+```
+
+All features will work as in the original implementation:
+- Subject management
+- Time configuration
+- Break scheduling
+- Custom subjects
+- Local storage persistence
+
+## Note on UI Components
+
+This implementation uses shadcn/ui components. Ensure you have these installed and configured:
+- button
+- card
+- checkbox
+- dialog
+- input
+- label
+- select
+- toast
+
+## Component Features
+
+1. TimetableGrid:
+   - Displays weekly schedule
+   - Handles subject placement
+   - Break time visualization
+   - Responsive design
+
+2. ControlPanel:
+   - Time configuration
+   - Break settings
+   - Subject management
+   - Custom subject creation
+
+3. SubjectModal:
+   - Subject selection interface
+   - Color coding
+   - Cell clearing functionality
+
+## Data Persistence
+
+The timetable uses localStorage for data persistence, saving:
+- Schedule data
+- Custom subjects
+- Time settings
+- Break configurations
+
+## Support
+
+For issues or questions:
+1. Check component dependencies are installed
+2. Verify import paths
+3. Check browser console for errors
+4. Ensure all required UI components are available
