@@ -86,18 +86,24 @@ const getBlogPosts = cache(async (language: string): Promise<Omit<BlogPost, "com
   }
 });
 
+import { doc, getDoc } from "firebase/firestore";
 async function getCounts(slug: string): Promise<{ commentCount: number; likeCount: number }> {
   try {
+    // Get comment count
     const commentsRef = collection(db, `content/${slug}/comments`);
     const commentsSnapshot = await getDocs(commentsRef);
     const commentCount = commentsSnapshot.size;
 
-    let totalLikes = 0;
-    commentsSnapshot.forEach((doc) => {
-      totalLikes += doc.data().likes || 0;
-    });
+    // Get like count from main post doc
+    const postRef = doc(db, `content/${slug}`);
+    const postSnap = await getDoc(postRef);
+    let likeCount = 0;
+    if (postSnap.exists()) {
+      const data = postSnap.data();
+      likeCount = typeof data.likes === 'number' ? data.likes : 0;
+    }
 
-    return { commentCount, likeCount: totalLikes };
+    return { commentCount, likeCount };
   } catch (error) {
     console.error(`Failed to get counts for ${slug}:`, error);
     return { commentCount: 0, likeCount: 0 };
@@ -116,9 +122,9 @@ async function getPostsWithCounts(language: string): Promise<BlogPost[]> {
 }
 
 export default async function BlogLanguagePage({ params }: { params: { language: string } }) {
-  const language = params.language === "hindi" ? "hindi" : "english";
-  const t = translations[language];
-  const blogPosts = await getPostsWithCounts(language);
+  const selectedLanguage = params.language === "hindi" ? "hindi" : "english";
+  const t = translations[selectedLanguage];
+  const blogPosts = await getPostsWithCounts(selectedLanguage);
 
   const featured = blogPosts.find((post) => post.featured);
   const postsWithoutFeatured = featured
@@ -131,7 +137,7 @@ export default async function BlogLanguagePage({ params }: { params: { language:
       {/* Language Toggle */}
       <div className="flex justify-end mb-6">
         <Button asChild variant="outline">
-          <Link href={`/blog/${language === "english" ? "hindi" : "english"}`}>{t.toggle}</Link>
+          <Link href={`/blog/${selectedLanguage === "english" ? "hindi" : "english"}`}>{t.toggle}</Link>
         </Button>
       </div>
 
@@ -181,7 +187,7 @@ export default async function BlogLanguagePage({ params }: { params: { language:
                 </div>
               </div>
               <Button asChild size="lg" className="mt-2 bg-white text-pink-600 font-bold shadow-lg hover:bg-pink-100 animate-fade-in-up delay-200">
-                <Link href={`/blog/${language}/${featured.slug}`}>
+                <Link href={`/blog/${selectedLanguage}/${featured.slug}`}>
                   {t.featured} <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -223,7 +229,7 @@ export default async function BlogLanguagePage({ params }: { params: { language:
                 </div>
               </div>
               <Button asChild variant="link" className="mt-2 text-white font-bold animate-fade-in-up delay-200">
-                <Link href={`/blog/${language}/${latest.slug}`}>
+                <Link href={`/blog/${selectedLanguage}/${latest.slug}`}>
                   {t.latest} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -270,7 +276,7 @@ export default async function BlogLanguagePage({ params }: { params: { language:
                   </span>
                 </div>
                 <Button asChild variant="ghost" className="text-green-700 hover:text-green-900 animate-fade-in-up delay-200">
-                  <Link href={`/blog/${language}/${post.slug}`}>
+                  <Link href={`/blog/${selectedLanguage}/${post.slug}`}>
                     {t.readMore} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

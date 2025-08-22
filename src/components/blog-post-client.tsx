@@ -28,8 +28,9 @@ export default function BlogPostClient({ slug, language, frontmatter, content, l
   }) : '';
 
   return (
-    <div className="container max-w-4xl mx-auto py-12 md:py-16">
-      <article className="prose dark:prose-invert lg:prose-xl mx-auto">
+    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+      <div className="w-full max-w-4xl py-8 md:py-12">
+        <article className="prose dark:prose-invert lg:prose-xl mx-auto">
         <header className="not-prose mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-2">{frontmatter.title}</h1>
           <div className="flex items-center justify-between">
@@ -126,11 +127,11 @@ export default function BlogPostClient({ slug, language, frontmatter, content, l
             {content}
           </ReactMarkdown>
         </div>
-      </article>
+        </article>
 
-      <Separator className="my-12" />
-      
-      <CommentsSection contentId={slug} />
+        <Separator className="my-12" />
+        <CommentsSection contentId={slug} />
+      </div>
     </div>
   );
 }
