@@ -25,9 +25,10 @@ const faqs = [
 
 export default function FaqsPage() {
   return (
-    <div className="container max-w-3xl mx-auto py-12 md:py-16">
-      <h1 className="text-4xl md:text-5xl font-bold font-headline mb-6">FAQs</h1>
-      <ul className="space-y-6">
+    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+      <div className="w-full max-w-3xl py-8 md:py-16">
+  <h1 className="text-4xl md:text-5xl font-bold font-headline mb-6">FAQs</h1>
+  <ul className="space-y-6">
         {faqs.map((faq, idx) => (
           <li key={idx}>
             <h2 className="text-xl font-semibold mb-2">{faq.question}</h2>
@@ -35,6 +36,7 @@ export default function FaqsPage() {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }

@@ -35,12 +35,13 @@ export default function ContactPage() {
   };
 
   return (
-    <motion.div
-      className="container max-w-2xl mx-auto py-12 md:py-16 px-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+      <motion.div
+        className="w-full max-w-2xl py-8 md:py-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
       <motion.h1
         className="text-4xl md:text-5xl font-bold font-headline mb-6 text-center text-primary"
         initial={{ y: -20, opacity: 0 }}
@@ -140,5 +141,7 @@ export default function ContactPage() {
         <p className="mt-2 text-gray-600 font-medium">— Team PurniaPulse</p>
       </motion.div>
     </motion.div>
+      </motion.div>
+    </div>
   );
 }

@@ -219,16 +219,17 @@ export default function ListingsPage() {
   const subCategories = categories.find(c => c.value === selectedCategory)?.subCategories;
 
   return (
-    <div className="container py-12 md:py-16">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline">Business Listings</h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Discover, rate, and review the best local spots.
-        </p>
-      </div>
+    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+      <div className="w-full max-w-6xl py-8 md:py-16">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline">Business Listings</h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Discover, rate, and review the best local spots.
+          </p>
+        </div>
 
-      <Card className="mb-12 p-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+        <Card className="mb-12 p-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
             <div className="md:col-span-1">
                 <label className="text-sm font-medium" htmlFor="category-select">Filter by Category</label>
                 <Select value={selectedCategory} onValueChange={handleCategoryChange}>
@@ -361,6 +362,7 @@ export default function ListingsPage() {
           <p className="text-xs text-muted-foreground mt-1">Advertisement</p>
         </div>
       </ClientOnly>
+      </div>
     </div>
   );
 }
