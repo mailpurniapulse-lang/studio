@@ -1,6 +1,6 @@
 ---
 title: "Purnea's First-Ever Flyover Construction: Traffic Congestion Relief in Sight 🚧"
-author: "Content Creator"
+author: "Kshankar"
 date: "2025-08-21"
 tags: ["Purnea flyover construction", "Purnea traffic congestion", "Bihar infrastructure development", "first flyover in Purnea", "traffic relief in Purnea", "Purnea city development news", "Bihar road construction projects", "Purnea city infrastructure updates", "traffic management in Purnea", "flyover construction in Bihar", "Purnea city traffic solution", "infrastructure growth in Purnea"]
 description: "Get ready for a congestion-free commute in Purnea! Learn about the city's first-ever flyover construction, its benefits, and how it will revolutionize traffic management in Purnea."

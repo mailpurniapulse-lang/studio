@@ -10,7 +10,7 @@ service cloud.firestore {
     // Blog post like count (aggregate field on post doc)
     match /content/{slug} {
       allow read: if true;
-      allow update: if request.auth != null && request.resource.data.keys().hasOnly(['likes']);
+      allow create, update: if request.auth != null && request.resource.data.keys().hasOnly(['likes']);
     }
 
     // User-specific like documents for posts

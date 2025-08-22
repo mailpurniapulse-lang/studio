@@ -37,10 +37,13 @@ export default function BlogLikeButton({ slug, initialLikeCount }: BlogLikeButto
     }
     const postRef = doc(db, `content/${slug}`);
     const userLikeRef = doc(db, `users/${user.uid}/postLikes/${slug}`);
-    // Ensure 'likes' field exists and is a number before incrementing
     const postSnap = await getDoc(postRef);
     if (!postSnap.exists()) {
-      toast({ title: "Post not found.", variant: "destructive" });
+      // Create the doc if it doesn't exist
+      await setDoc(postRef, { likes: 1 }, { merge: true });
+      await setDoc(userLikeRef, { timestamp: serverTimestamp() });
+      setIsLiked(true);
+      setLikeCount(1);
       return;
     }
     const postData = postSnap.data();
