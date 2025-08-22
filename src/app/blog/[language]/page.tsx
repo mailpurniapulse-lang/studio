@@ -133,7 +133,8 @@ export default async function BlogLanguagePage({ params }: { params: { language:
   const [latest, ...rest] = postsWithoutFeatured;
 
   return (
-    <div className="container mx-auto py-12 md:py-16">
+    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+      <div className="w-full max-w-6xl py-8 md:py-16">
       {/* Language Toggle */}
       <div className="flex justify-end mb-6">
         <Button asChild variant="outline">
@@ -149,8 +150,8 @@ export default async function BlogLanguagePage({ params }: { params: { language:
         <p className="mt-4 text-lg text-muted-foreground animate-fade-in">{t.subheading}</p>
       </div>
 
-      {/* Layout Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+  {/* Layout Grid */}
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         {/* Featured Post - Large, colorful, animated */}
         {featured && (
           <Card className="lg:col-span-3 mb-8 shadow-2xl border-0 bg-gradient-to-br from-pink-400 via-purple-400 to-indigo-400 animate-gradient-x transition-transform duration-500 hover:scale-[1.02]">
@@ -284,6 +285,7 @@ export default async function BlogLanguagePage({ params }: { params: { language:
             </Card>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

@@ -268,11 +268,12 @@ export default function ListingsPage() {
          <div className="text-center py-8 text-red-500">
             <p>Error: {error}</p>
          </div>
-      ) : allListings.length === 0 ? (
-         <div className="text-center py-8">
-            <p className="text-muted-foreground">No listings found. Please check the content/listings directory.</p>
-            <p className="text-sm text-muted-foreground mt-2">Directory: /content/listings/*.md</p>
-         </div>
+    ) : allListings.length === 0 ? (
+      <div className="text-center py-8">
+        <h2 className="text-2xl font-bold mb-4">Want your business listed here?</h2>
+        <p className="text-muted-foreground mb-4">Contact us to get your business featured on this page.</p>
+        <a href="/contact" className="inline-block px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Contact Us</a>
+      </div>
       ) : filteredListings.length === 0 ? (
          <div className="text-center py-8">
             <p className="text-muted-foreground">No listings found for the selected category.</p>
