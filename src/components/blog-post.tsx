@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { CommentsSection } from '@/components/comments-section';
 import { Separator } from '@/components/ui/separator';
 import { MessageSquare, Heart } from 'lucide-react';
-import { getContent } from '@/lib/markdown-utils';
+// getContent removed: this component is now pure presentational
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -14,41 +14,21 @@ import { db } from '@/lib/firebase';
 import { doc, updateDoc, increment, getDoc, setDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
 import { motion } from 'framer-motion';
 
+
 interface BlogPostProps {
   slug: string;
   language: string;
   commentCount: number;
   likeCount: number;
+  frontmatter: any;
+  content: string;
 }
 
-export default function BlogPost({ slug, language, commentCount, likeCount }: BlogPostProps) {
-  const [newComment, setNewComment] = useState('');
+export default function BlogPost({ slug, language, commentCount, likeCount, frontmatter, content }: BlogPostProps) {
   const [isLiked, setIsLiked] = useState(false);
   const [localLikeCount, setLocalLikeCount] = useState(likeCount);
   const { user } = useAuth();
   const { toast } = useToast();
-  const [content, setContent] = useState('');
-  const [frontmatter, setFrontmatter] = useState<any>(null);
-
-  useEffect(() => {
-    async function fetchContent() {
-      const post = await getContent('blog', [language, slug]);
-      if (!post) return;
-      setContent(post.content);
-      setFrontmatter(post.frontmatter);
-    }
-    fetchContent();
-  }, [language, slug]);
-
-  useEffect(() => {
-    if (!user) return;
-    const checkUserLike = async () => {
-      const userLikeRef = doc(db, `users/${user.uid}/postLikes/${slug}`);
-      const docSnap = await getDoc(userLikeRef);
-      setIsLiked(docSnap.exists());
-    };
-    checkUserLike();
-  }, [user, slug]);
 
   const handlePostLike = async () => {
     if (!user) {
@@ -70,8 +50,6 @@ export default function BlogPost({ slug, language, commentCount, likeCount }: Bl
       setLocalLikeCount(prev => prev + 1);
     }
   };
-
-  if (!frontmatter) return <div className="text-center py-20 text-lg animate-pulse">Loading your stylish blog...</div>;
 
   return (
     <motion.article
