@@ -104,9 +104,9 @@ export default function ListingsPage() {
       try {
         setLoading(true);
         setError(null);
-        console.log('Fetching listings...');
+  // ...removed debug log...
         const listings = await getListings();
-        console.log('Fetched listings:', listings);
+  // ...removed debug log...
 
         if (!Array.isArray(listings)) {
           throw new Error('Invalid listings data received');
@@ -115,7 +115,7 @@ export default function ListingsPage() {
         const listingsWithStats = await Promise.all(
           listings.map(async (listing) => {
             if (!listing.slug) {
-              console.warn('Listing missing slug:', listing);
+              // ...removed debug log...
               return {
                 ...listing,
                 commentCount: 0,
@@ -128,7 +128,7 @@ export default function ListingsPage() {
           })
         );
 
-        console.log('Processed listings:', listingsWithStats);
+  // ...removed debug log...
         setAllListings(listingsWithStats);
       } catch (err) {
         console.error('Error loading listings:', err);
@@ -149,18 +149,18 @@ export default function ListingsPage() {
       setError(null);
       try {
         const listings = await getListings();
-        console.log('Fetched listings:', listings); // Debug log
+  // ...removed debug log...
         
         if (!Array.isArray(listings)) {
           throw new Error('Listings data is not an array');
         }
                     if (listings.length === 0) {
-              console.warn('No listings found. Contact us to get your business listed and reach more customers!');
+              // ...removed debug log...
             }
         const listingsWithCounts = await Promise.all(
           listings.map(async (listing) => {
             if (!listing.slug) {
-              console.warn('Listing missing slug:', listing);
+              // ...removed debug log...
               return { ...listing, commentCount: 0, averageRating: 0, totalRatings: 0 };
             }
             const stats = await getListingStats(listing.slug);
@@ -168,7 +168,7 @@ export default function ListingsPage() {
           })
         );
         
-        console.log('Processed listings:', listingsWithCounts); // Debug log
+  // ...removed debug log...
         setAllListings(listingsWithCounts);
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Failed to load listings';
@@ -182,7 +182,7 @@ export default function ListingsPage() {
   }, []);
 
   const filteredListings = useMemo(() => {
-    console.log('Filtering listings:', { selectedCategory, selectedSubCategory, allListings });
+  // ...removed debug log...
     
     if (allListings.length === 0) {
       return [];
