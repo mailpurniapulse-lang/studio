@@ -140,8 +140,7 @@ export default function ContactPage() {
         </p>
         <p className="mt-2 text-gray-600 font-medium">— Team PurniaPulse</p>
       </motion.div>
-    </motion.div>
-      </motion.div>
-    </div>
+  </motion.div>
+  </div>
   );
 }
