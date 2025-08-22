@@ -154,11 +154,9 @@ export default function ListingsPage() {
         if (!Array.isArray(listings)) {
           throw new Error('Listings data is not an array');
         }
-        
-        if (listings.length === 0) {
-          console.warn('No listings found in the content/listings directory');
-        }
-
+                    if (listings.length === 0) {
+              console.warn('No listings found. Contact us to get your business listed and reach more customers!');
+            }
         const listingsWithCounts = await Promise.all(
           listings.map(async (listing) => {
             if (!listing.slug) {
