@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from "react";
 
 const faqs = [
@@ -25,7 +26,20 @@ const faqs = [
 
 export default function FaqsPage() {
   return (
-    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+    <>
+      <Head>
+        <title>FAQs | PurniaPulse</title>
+        <meta name="description" content="Frequently asked questions about PurniaPulse, our tools, and our platform." />
+        <meta property="og:title" content="FAQs | PurniaPulse" />
+        <meta property="og:description" content="Frequently asked questions about PurniaPulse, our tools, and our platform." />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="PurniaPulse" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="FAQs | PurniaPulse" />
+        <meta name="twitter:description" content="Frequently asked questions about PurniaPulse, our tools, and our platform." />
+      </Head>
+  <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
       <div className="w-full max-w-3xl py-8 md:py-16">
   <h1 className="text-4xl md:text-5xl font-bold font-headline mb-6">FAQs</h1>
   <ul className="space-y-6">
@@ -38,5 +52,6 @@ export default function FaqsPage() {
       </ul>
       </div>
     </div>
+    </>
   );
 }

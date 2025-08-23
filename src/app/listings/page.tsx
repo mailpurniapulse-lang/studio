@@ -1,5 +1,6 @@
-
 "use client";
+
+import Head from 'next/head';
 
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
@@ -219,7 +220,20 @@ export default function ListingsPage() {
   const subCategories = categories.find(c => c.value === selectedCategory)?.subCategories;
 
   return (
-    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+    <>
+      <Head>
+        <title>Business Listings | PurniaPulse</title>
+        <meta name="description" content="Discover, rate, and review the best local spots in Purnea. Find bookstores, restaurants, wellness centers, and more." />
+        <meta property="og:title" content="Business Listings | PurniaPulse" />
+        <meta property="og:description" content="Discover, rate, and review the best local spots in Purnea. Find bookstores, restaurants, wellness centers, and more." />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="PurniaPulse" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Business Listings | PurniaPulse" />
+        <meta name="twitter:description" content="Discover, rate, and review the best local spots in Purnea. Find bookstores, restaurants, wellness centers, and more." />
+      </Head>
+  <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
       <div className="w-full max-w-6xl py-8 md:py-16">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold font-headline">Business Listings</h1>
@@ -364,5 +378,6 @@ export default function ListingsPage() {
       </ClientOnly>
       </div>
     </div>
+    </>
   );
 }

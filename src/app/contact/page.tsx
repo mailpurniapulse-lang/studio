@@ -1,7 +1,9 @@
+
 'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -35,7 +37,20 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+    <>
+      <Head>
+        <title>Contact Us | PurniaPulse</title>
+        <meta name="description" content="Contact the PurniaPulse team for questions, suggestions, or business listings. We’d love to hear from you!" />
+        <meta property="og:title" content="Contact Us | PurniaPulse" />
+        <meta property="og:description" content="Contact the PurniaPulse team for questions, suggestions, or business listings. We’d love to hear from you!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="PurniaPulse" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us | PurniaPulse" />
+        <meta name="twitter:description" content="Contact the PurniaPulse team for questions, suggestions, or business listings. We’d love to hear from you!" />
+      </Head>
+  <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
       <motion.div
         className="w-full max-w-2xl py-8 md:py-16"
         initial={{ opacity: 0 }}
@@ -142,5 +157,6 @@ export default function ContactPage() {
       </motion.div>
   </motion.div>
   </div>
+    </>
   );
 }

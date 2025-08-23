@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from "next/link";
 import {
   Card,
@@ -9,7 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { ArrowRight, MessageSquare, Heart } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { BlogPostStats } from "@/components/blog-post-stats";
 import { cn } from "@/lib/utils";
 import { db } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -133,7 +135,20 @@ export default async function BlogLanguagePage({ params }: { params: { language:
   const [latest, ...rest] = postsWithoutFeatured;
 
   return (
-    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+    <>
+      <Head>
+        <title>{selectedLanguage === 'english' ? 'PurniaPulse Blog - English' : 'PurniaPulse Blog - हिंदी'}</title>
+        <meta name="description" content={t.subheading} />
+        <meta property="og:title" content={t.heading} />
+        <meta property="og:description" content={t.subheading} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="PurniaPulse" />
+        <meta property="og:locale" content={selectedLanguage === 'english' ? 'en_US' : 'hi_IN'} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t.heading} />
+        <meta name="twitter:description" content={t.subheading} />
+      </Head>
+  <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
       <div className="w-full max-w-6xl py-8 md:py-16">
       {/* Language Toggle */}
       <div className="flex justify-end mb-6">
@@ -174,19 +189,13 @@ export default async function BlogLanguagePage({ params }: { params: { language:
               <CardDescription className="mb-6 text-center text-lg animate-fade-in-up delay-100">
                 {featured.description}
               </CardDescription>
-              <div className="flex items-center justify-center gap-6 mb-4">
-                <div className="flex items-center gap-2">
-                  <MessageSquare className="h-5 w-5" /> 
-                  <span>{featured.commentCount}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Heart className={cn(
-                    "h-5 w-5",
-                    featured.likeCount > 0 ? "fill-destructive text-destructive" : ""
-                  )} />
-                  <span>{featured.likeCount}</span>
-                </div>
-              </div>
+              <BlogPostStats
+                slug={featured.slug}
+                initialCommentCount={featured.commentCount}
+                initialLikeCount={featured.likeCount}
+                className="justify-center gap-6 mb-4"
+                iconClass="h-5 w-5"
+              />
               <Button asChild size="lg" className="mt-2 bg-white text-pink-600 font-bold shadow-lg hover:bg-pink-100 animate-fade-in-up delay-200">
                 <Link href={`/blog/${selectedLanguage}/${featured.slug}`}>
                   {t.featured} <ArrowRight className="ml-2 h-5 w-5" />
@@ -216,19 +225,13 @@ export default async function BlogLanguagePage({ params }: { params: { language:
               <CardDescription className="mb-4 animate-fade-in-up delay-100">
                 {latest.description}
               </CardDescription>
-              <div className="flex items-center gap-6 mb-4">
-                <div className="flex items-center gap-2 text-white">
-                  <MessageSquare className="h-4 w-4" /> 
-                  <span>{latest.commentCount}</span>
-                </div>
-                <div className="flex items-center gap-2 text-white">
-                  <Heart className={cn(
-                    "h-4 w-4",
-                    latest.likeCount > 0 ? "fill-destructive text-destructive" : ""
-                  )} />
-                  <span>{latest.likeCount}</span>
-                </div>
-              </div>
+              <BlogPostStats
+                slug={latest.slug}
+                initialCommentCount={latest.commentCount}
+                initialLikeCount={latest.likeCount}
+                className="gap-6 mb-4 text-white"
+                iconClass="h-4 w-4"
+              />
               <Button asChild variant="link" className="mt-2 text-white font-bold animate-fade-in-up delay-200">
                 <Link href={`/blog/${selectedLanguage}/${latest.slug}`}>
                   {t.latest} <ArrowRight className="ml-2 h-4 w-4" />
@@ -265,17 +268,13 @@ export default async function BlogLanguagePage({ params }: { params: { language:
                 </CardDescription>
               </CardContent>
               <CardFooter className="p-6 pt-0 flex justify-between items-center">
-                <div className="flex items-center gap-4 text-green-700 text-sm">
-                  <span className="flex items-center gap-1.5">
-                    <MessageSquare className="w-4 h-4" /> {post.commentCount}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Heart className={cn(
-                      "w-4 h-4",
-                      post.likeCount > 0 ? "fill-destructive text-destructive" : ""
-                    )} /> {post.likeCount}
-                  </span>
-                </div>
+                <BlogPostStats
+                  slug={post.slug}
+                  initialCommentCount={post.commentCount}
+                  initialLikeCount={post.likeCount}
+                  className="gap-4 text-green-700 text-sm"
+                  iconClass="w-4 h-4"
+                />
                 <Button asChild variant="ghost" className="text-green-700 hover:text-green-900 animate-fade-in-up delay-200">
                   <Link href={`/blog/${selectedLanguage}/${post.slug}`}>
                     {t.readMore} <ArrowRight className="ml-2 h-4 w-4" />
@@ -288,5 +287,6 @@ export default async function BlogLanguagePage({ params }: { params: { language:
       </div>
       </div>
     </div>
+    </>
   );
 }

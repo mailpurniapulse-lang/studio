@@ -208,7 +208,7 @@ function FileConverterPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {pdfImages.map((img, idx) => (
                     <div key={idx} className="border rounded p-2 flex flex-col items-center">
-                      <img src={img} alt={`Page ${idx + 1}`} className="w-full h-auto max-h-64 object-contain mb-2" />
+                      <img src={img} alt={`Page ${idx + 1}`} width={512} height={512} className="w-full h-auto max-h-64 object-contain mb-2" />
                       <Button
                         onClick={() => {
                           const link = document.createElement('a');

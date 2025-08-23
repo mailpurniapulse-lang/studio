@@ -1,11 +1,26 @@
+
 'use client';
+import Head from 'next/head';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function PrivacyPage() {
   return (
-    <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
+    <>
+      <Head>
+        <title>Privacy Policy | PurniaPulse</title>
+        <meta name="description" content="Read the privacy policy for PurniaPulse. Learn how we protect your data and respect your privacy." />
+        <meta property="og:title" content="Privacy Policy | PurniaPulse" />
+        <meta property="og:description" content="Read the privacy policy for PurniaPulse. Learn how we protect your data and respect your privacy." />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="PurniaPulse" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Privacy Policy | PurniaPulse" />
+        <meta name="twitter:description" content="Read the privacy policy for PurniaPulse. Learn how we protect your data and respect your privacy." />
+      </Head>
+  <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
       <motion.div
         className="w-full max-w-3xl py-8 md:py-16"
         initial={{ opacity: 0 }}
@@ -76,5 +91,6 @@ export default function PrivacyPage() {
       </div>
     </motion.div>
     </div>
+    </>
   );
 }

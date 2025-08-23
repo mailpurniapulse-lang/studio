@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -16,7 +17,14 @@ export default function AboutPage() {
       <p className="text-lg">We believe in making technology accessible and useful for everyone. Whether you're a student, professional, or business owner, PurniaPulse is here to help you achieve more.</p>
       <div className="mt-8">
         <h3 className="text-lg font-semibold">Author</h3>
-        <img className="img-fluid rounded-circle mb-4 px-4" src="@/content/kranti-om-shankar.jpg" alt="Profile Image" />
+        <Image
+          className="img-fluid rounded-circle mb-4 px-4"
+          src={require("@/public/img/kranti-om-shankar.jpg").default || "/img/kranti-om-shankar.jpg"}
+          alt="Profile Image"
+          width={160}
+          height={160}
+          priority
+        />
         <p className="text-md">KRANTI OM SHANKAR</p>
 
         <p className="text-md">Lead Blogger & Content Strategist</p>
