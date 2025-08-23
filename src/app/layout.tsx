@@ -36,26 +36,8 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
         {/* AdSense */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1461507496735569" crossOrigin="anonymous"></script>
-        {/* Google Analytics (old) */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-GMHPLBEM4G" strategy="afterInteractive" />
-        <Script id="ga-old" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-GMHPLBEM4G');
-          `}
-        </Script>
-        {/* Google Analytics (new) */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT4PTEDJF7" strategy="afterInteractive" />
-        <Script id="ga-new" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-DT4PTEDJF7');
-          `}
-        </Script>
+  {/* Google Analytics (old) removed */}
+  {/* Google Analytics (new) removed */}
       </head>
       <body className={cn('font-body antialiased min-h-screen flex flex-col')}>
         {/* Google Tag Manager (noscript) */}
