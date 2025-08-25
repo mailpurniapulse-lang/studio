@@ -1,12 +1,10 @@
-Here is the comprehensive blog post on "Purnea University's Recent Academic Achievements and Rankings in Eastern India":
-
 ---
 title: "Purnea University's Recent Academic Achievements and Rankings in Eastern India: A Beacon of Excellence"
-author: "Content Creator"
+author: "Kshankar"
 date: "2025-08-22"
 tags: ["Purnea University ranking", "Purnea University achievements", "Eastern India university rankings", "top universities in Eastern India", "what is Purnea University ranking", "how to get admission in Purnea University", "best universities in Bihar for engineering", "Purnea University recent achievements", "academic excellence in Eastern India", "higher education in Bihar", "university rankings in India", "Eastern India education news"]
 description: "Discover Purnea University's remarkable achievements and rankings in Eastern India, showcasing its commitment to academic excellence and leadership in higher education in Bihar."
-image: "/images/purnea-university's-recent-academic-achievements-and-rankings-in-eastern-india-hero.jpg"
+image: "/img/blog/purnea-university's-recent-academic-achievements-and-rankings-in-eastern-india-hero.jpg"
 imageHint: "Professional image representing Purnea University's Recent Academic Achievements and Rankings in Eastern India"
 latest: true
 readingTime: "10 min read"
