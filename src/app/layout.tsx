@@ -25,6 +25,8 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/img/Panchmukhi_Mandir_Purnea.jpg" />
         {/* Preload main font for FCP optimization */}
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
+  {/* Favicon */}
+  <link rel="icon" href="/favicon%20.ico" type="image/x-icon" />
   {/* Preconnect for Google Analytics, AdSense, and Firebase Auth */}
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
