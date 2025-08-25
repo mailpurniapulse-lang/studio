@@ -22,23 +22,22 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google Analytics (gtag.js) */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-8E59P4KL2W" strategy="afterInteractive" />
-        <Script id="google-gtag" strategy="afterInteractive">
-          {`
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMHPLBEM4G"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-8E59P4KL2W');
-          `}
-        </Script>
+            gtag('config', 'G-GMHPLBEM4G');
+          `
+        }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
-  {/* AdSense */}
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1461507496735569" crossOrigin="anonymous"></script>
+        {/* AdSense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1461507496735569" crossOrigin="anonymous"></script>
       </head>
       <body className={cn('font-body antialiased min-h-screen flex flex-col')}>
-  {/* Google Tag Manager removed */}
         <AuthProvider>
           <Header />
           <main className="flex-grow">{children}</main>
