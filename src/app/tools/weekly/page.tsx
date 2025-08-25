@@ -7,8 +7,7 @@ import TimetableGrid from "@/components/weekly/TimetableGrid";
 import ControlPanel from "@/components/weekly/ControlPanel";
 import SubjectModal from "@/components/weekly/SubjectModal";
 import ExportButtons from "@/components/weekly/ExportButtons";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+// Dynamically import heavy libraries only when needed
 import { presetSubjects } from "@/lib/plangen/subjects";
 import { calculatePeriodTimes } from "@/lib/plangen/timeUtils";
 import type { WeekSchedule, CustomSubject } from "@/lib/plangen/types";
@@ -56,6 +55,8 @@ export default function TimetablePage() {
 
     await new Promise(r => setTimeout(r, 200));
 
+    // Dynamically import html2canvas only when exporting
+    const html2canvas = (await import("html2canvas")).default;
     const canvas = await html2canvas(timetable, {
       scale: 2,
       useCORS: true,
@@ -90,6 +91,8 @@ export default function TimetablePage() {
 
     await new Promise(r => setTimeout(r, 200));
 
+    // Dynamically import html2canvas and jsPDF only when exporting
+    const html2canvas = (await import("html2canvas")).default;
     const canvas = await html2canvas(timetable, {
       scale: 2,
       useCORS: true,
@@ -101,6 +104,7 @@ export default function TimetablePage() {
     Object.assign(timetable.style, originalStyle);
 
     const imgData = canvas.toDataURL("image/png");
+    const jsPDF = (await import("jspdf")).default;
     const pdf = new jsPDF({
       orientation: "landscape",
       unit: "px",
