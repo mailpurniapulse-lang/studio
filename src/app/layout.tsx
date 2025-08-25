@@ -21,6 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preload hero image for LCP optimization */}
+        <link rel="preload" as="image" href="/img/Panchmukhi_Mandir_Purnea.jpg" />
+        {/* Preload main font for FCP optimization */}
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
         {/* Preconnect for Google Analytics and AdSense */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />

@@ -10,55 +10,6 @@ export default function ToolsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { user, loading, signInWithGoogle } = useAuth();
-
-  if (loading) {
-    return (
-      <div className="w-full text-center py-24">
-        <p className="text-muted-foreground">Loading...</p>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return (
-      <section className="flex flex-col items-center w-full">
-        <div className="w-full bg-secondary/30 py-12">
-          <div className="container text-center">
-            <h1 className="text-4xl md:text-5xl font-primary-bold font-headline text-primary-foreground">
-              Our Tools
-            </h1>
-            <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
-              A collection of powerful, easy-to-use utilities to boost your productivity—from image resizing to smart scheduling.
-            </p>
-          </div>
-        </div>
-        <div className="container w-full max-w-2xl py-12 text-center">
-          <Card className="p-8">
-            <CardHeader>
-              <Lock className="h-12 w-12 mx-auto text-primary" />
-              <CardTitle className="mt-4">Access Restricted</CardTitle>
-              <CardDescription>
-                Please sign in to unlock our suite of creator tools.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button onClick={signInWithGoogle} size="lg">
-                Sign In with Google
-              </Button>
-              <p className="mt-6 text-sm text-muted-foreground">
-                Most tools are free to use. However, access to the <span className="font-medium text-primary">Weekly Timetable</span> requires a premium account.
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Signing in also lets you save your progress, access personalized features, and manage your listings.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="flex flex-col items-center w-full">
       <div className="w-full bg-secondary/30 py-12">

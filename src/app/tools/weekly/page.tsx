@@ -14,8 +14,7 @@ import { calculatePeriodTimes } from "@/lib/plangen/timeUtils";
 import type { WeekSchedule, CustomSubject } from "@/lib/plangen/types";
 
 export default function TimetablePage() {
-  const { user, loading } = useAuth();
-  const [allowed, setAllowed] = useState<boolean | null>(null);
+  // const { user, loading } = useAuth();
   const [selectedClass, setSelectedClass] = useState("Class 1");
   const [startTime, setStartTime] = useState("09:00");
   const [periodDuration, setPeriodDuration] = useState(45);
@@ -37,29 +36,7 @@ export default function TimetablePage() {
   const [currentCell, setCurrentCell] = useState<{ day: string; period: number } | null>(null);
   const periodTimes = calculatePeriodTimes(startTime, periodDuration, enableBreak, breakAfterPeriod, breakDuration);
 
-  useEffect(() => {
-    if (loading) return;
-    if (!user?.email) {
-      setAllowed(false);
-      return;
-    }
-    fetch("/permission.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setAllowed(data?.allowedEmails?.includes(user.email));
-      });
-  }, [user, loading]);
-
-  if (loading || allowed === null) {
-    return <div className="w-full text-center py-24"><p className="text-muted-foreground">Loading...</p></div>;
-  }
-  if (!allowed) {
-    return (
-      <div className="w-full text-center py-24">
-        <p className="text-lg text-muted-foreground">You do not have access to this tool.</p>
-      </div>
-    );
-  }
+  // Permission check removed: all users can access
 
   const handleExportImage = async () => {
     const timetable = document.getElementById("timetable-container");

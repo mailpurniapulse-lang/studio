@@ -36,33 +36,42 @@ export default function Home() {
       <Head>
         <link rel="canonical" href="https://purniapulse.in/" />
       </Head>
-      <div className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full py-20 md:py-32 bg-secondary/30">
-        <div className="container px-4 md:px-6 text-center">
-          <div className="mb-4">
-             <Sparkles className="h-16 w-16 text-accent mx-auto animate-pulse" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-headline font-bold tracking-tight text-primary-foreground">
-            Welcome to <span className="text-primary">PurniaPulse</span>
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Your friendly corner of the internet for creative tools, insightful content, and community reviews. Let's build something amazing together!
-          </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href="#features">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/blog">
-                Read Our Blog
-              </Link>
-            </Button>
+      <section className="relative w-full h-[80vh] md:h-[90vh] overflow-hidden">
+        <Image
+          src="/img/Panchmukhi_Mandir_Purnea.jpg"
+          alt="Panchmukhi Mandir, Purnea"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-center px-4">
+          <div className="text-white max-w-3xl">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+               Our Purnea
+            </h1>
+            <p className="text-lg md:text-xl font-medium drop-shadow-md">
+              A sacred landmark of devotion and heritage in Purnea, Panchmukhi Mandir
+            </p>
           </div>
         </div>
       </section>
+      {/* About Section */}
+<section className="w-full py-16 bg-background">
+  <div className="container px-4 md:px-6 text-center">
+    <Sparkles className="h-10 w-10 text-primary mx-auto mb-4" />
+    <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">
+      About Purnia Pulse
+    </h2>
+    <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
+      <strong>Purnia Pulse</strong> is your digital gateway to the vibrant culture, businesses, and creative minds of Purnea, Bihar. Whether you're a local resident, a curious traveler, or a tech enthusiast, our platform brings together insightful blogs, curated listings, and powerful creator tools—all designed to celebrate and empower the community.
+    </p>
+    <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed mt-4">
+      We believe in storytelling, discovery, and innovation. From sacred landmarks like Panchmukhi Mandir to emerging startups and creators, Purnia Pulse is here to amplify voices and connect people through meaningful content and resources.
+    </p>
+  </div>
+</section>
+
 
       {/* Ad Placeholder */}
       <ClientOnly>
@@ -122,7 +131,6 @@ export default function Home() {
             <p className="mt-2 text-muted-foreground max-w-xl mx-auto">This project is built with modern technologies to provide a fast, reliable, and enjoyable experience for everyone.</p>
         </div>
       </section>
-    </div>
     </>
   );
 }
