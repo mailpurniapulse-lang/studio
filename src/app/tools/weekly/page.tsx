@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Head from 'next/head';
 import { useAuth } from "@/hooks/use-auth";
 import { Calendar } from "lucide-react";
 import TimetableGrid from "@/components/weekly/TimetableGrid";
@@ -223,3 +224,6 @@ export default function TimetablePage() {
     </div>
   );
 }
+      <Head>
+        <link rel="canonical" href="https://purniapulse.in/tools/weekly" />
+      </Head>

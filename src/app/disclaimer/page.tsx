@@ -15,6 +15,7 @@ export default function DisclaimerPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Disclaimer | PurniaPulse" />
         <meta name="twitter:description" content="Disclaimer for PurniaPulse. All information is provided in good faith, but we make no warranty regarding accuracy or completeness." />
+  <link rel="canonical" href="https://purniapulse.in/disclaimer" />
       </Head>
   <div className="w-full flex justify-center px-2 sm:px-4 md:px-6 lg:px-0">
       <div className="w-full max-w-3xl py-8 md:py-16">

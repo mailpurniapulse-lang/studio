@@ -1,5 +1,6 @@
 "use client";
 
+import Head from 'next/head';
 import { useState, useRef, useEffect } from 'react';
 import JSZip from 'jszip';
 import dynamic from 'next/dynamic';
@@ -173,7 +174,11 @@ function FileConverterPage() {
   );
 
   return (
-    <Card className="w-full">
+    <>
+      <Head>
+        <link rel="canonical" href="https://purniapulse.in/tools/file-converter" />
+      </Head>
+      <Card className="w-full">
       <CardHeader>
         <CardTitle className="font-headline text-2xl flex items-center gap-2"><FileText /> File Converter</CardTitle>
         <CardDescription>Quickly convert your files between popular formats.</CardDescription>
@@ -246,7 +251,8 @@ function FileConverterPage() {
           </TabsContent>
         </Tabs>
       </CardContent>
-    </Card>
+      </Card>
+    </>
   );
 }
 
