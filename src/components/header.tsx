@@ -27,7 +27,7 @@ const toolLinks = [
   { href: '/tools/image-resizer', label: 'Image Resizer' },
   { href: '/tools/file-converter', label: 'File Converter' },
   { href: '/tools/timetable-creator', label: 'Timetable Creator (only Desktop Mode)' },
-  { href: '/tools/weekly', label: 'Weekly Timetable (Paid- only Desktop Mode)' },
+  { href: '/tools/weekly', label: 'Weekly Timetable ( only Desktop Mode)' },
 ];
 
 export function Header() {
