@@ -1,4 +1,5 @@
 // @ts-nocheck
+import Head from 'next/head';
 import Image from "next/image";
 import { notFound } from 'next/navigation';
 import { ReviewSection } from "@/components/review-section";
@@ -53,7 +54,11 @@ export default async function ListingDetailPage({ params }: { params: { slug: st
     };
 
     return (
-      <div className="bg-secondary/30">
+      <>
+        <Head>
+          <link rel="canonical" href={`https://purniapulse.in/listings/${slug}`} />
+        </Head>
+        <div className="bg-secondary/30">
         <div className="container max-w-6xl mx-auto py-12 md:py-16">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
@@ -125,6 +130,7 @@ export default async function ListingDetailPage({ params }: { params: { slug: st
           </div>
         </div>
       </div>
+      </>
     );
   } catch (error) {
     console.error('Error loading listing:', error);

@@ -222,6 +222,7 @@ export default function ListingsPage() {
   return (
     <>
       <Head>
+        <link rel="canonical" href="https://purniapulse.in/listings" />
         <title>Business Listings | PurniaPulse</title>
         <meta name="description" content="Discover, rate, and review the best local spots in Purnea. Find bookstores, restaurants, wellness centers, and more." />
         <meta property="og:title" content="Business Listings | PurniaPulse" />

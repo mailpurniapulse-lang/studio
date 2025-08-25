@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Head from 'next/head';
 import { getContent } from "@/lib/markdown-utils";
 import { db } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -32,13 +33,18 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
   });
 
   return (
-    <BlogPostClient
-      slug={slug}
-      language={language}
-      frontmatter={frontmatter}
-      content={content}
-      likeCount={likeCount}
-      commentCount={commentCount}
-    />
+    <>
+      <Head>
+        <link rel="canonical" href={`https://purniapulse.in/blog/${language}/${slug}`} />
+      </Head>
+      <BlogPostClient
+        slug={slug}
+        language={language}
+        frontmatter={frontmatter}
+        content={content}
+        likeCount={likeCount}
+        commentCount={commentCount}
+      />
+    </>
   );
 }

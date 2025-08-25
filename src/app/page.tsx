@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { ArrowRight, BookOpen, Store, Wrench, Heart, Sparkles } from 'lucide-react';
@@ -31,7 +32,11 @@ const features = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
+    <>
+      <Head>
+        <link rel="canonical" href="https://purniapulse.in/" />
+      </Head>
+      <div className="flex flex-col items-center">
       {/* Hero Section */}
       <section className="w-full py-20 md:py-32 bg-secondary/30">
         <div className="container px-4 md:px-6 text-center">
@@ -118,5 +123,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }
