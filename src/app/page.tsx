@@ -43,7 +43,9 @@ export default function Home() {
           alt="Panchmukhi Mandir, Purnea"
           fill
           priority
+          fetchPriority="high"
           className="object-cover object-center"
+          /* NOTE: For best LCP, compress this image to ~60% quality using jpegoptim or Squoosh */
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-center px-4">
           <div className="text-white max-w-3xl">

@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -19,6 +18,11 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  // Target only modern browsers to avoid legacy JS/polyfills
+  experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true,
   },
 };
 
