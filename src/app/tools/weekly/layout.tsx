@@ -5,7 +5,11 @@ export default function WeeklyLayout({
 }) {
   return (
     <section className="flex flex-col items-center w-full">
-      {children}
+           <div className="w-full overflow-x-auto px-4 md:px-8">
+        <div className="min-w-[1200px] max-w-5xl mx-auto">
+          {children}
+        </div>
+      </div>
     </section>
   );
 }
