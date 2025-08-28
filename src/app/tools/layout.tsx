@@ -36,7 +36,7 @@ export default function ToolsLayout({
 
       {/* Responsive children container */}
       <div className="w-full overflow-x-auto px-4 md:px-8">
-        <div className="min-w-[1000px] max-w-5xl mx-auto">
+        <div className="min-w-[1200px] max-w-5xl mx-auto">
           {children}
         </div>
       </div>
