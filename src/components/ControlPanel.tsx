@@ -225,15 +225,14 @@ export default function ControlPanel({
               <div>
                 <Label htmlFor="break-after">Break After Period</Label>
                 <Select value={breakAfterPeriod.toString()} onValueChange={(value) => setBreakAfterPeriod(parseInt(value))}>
-                  <SelectTrigger>
+                  <SelectTrigger className="text-blue-600">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="text-orange-700">
                     <SelectItem value="2">Period 2</SelectItem>
                     <SelectItem value="3">Period 3</SelectItem>
                     <SelectItem value="4">Period 4</SelectItem>
-                    <SelectItem value="5">Period 5</SelectItem>
-                    <SelectItem value="6">Period 6</SelectItem>
+
                   </SelectContent>
                 </Select>
               </div>
@@ -272,16 +271,17 @@ export default function ControlPanel({
             <div className="space-y-3">
               <div>
                 <Label htmlFor="break-after-2">Break 2 After Period</Label>
-                <Select value={breakAfterPeriod2.toString()} onValueChange={(value) => setBreakAfterPeriod2(parseInt(value))}>
-                  <SelectTrigger>
+                <Select  value={breakAfterPeriod2.toString()} onValueChange={(value) => setBreakAfterPeriod2(parseInt(value))}>
+                  <SelectTrigger className="text-blue-700">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="2">Period 2</SelectItem>
-                    <SelectItem value="3">Period 3</SelectItem>
+                  <SelectContent className="text-orange-700">
+                    
                     <SelectItem value="4">Period 4</SelectItem>
                     <SelectItem value="5">Period 5</SelectItem>
                     <SelectItem value="6">Period 6</SelectItem>
+                    <SelectItem value="7">Period 7</SelectItem>
+
                   </SelectContent>
                 </Select>
               </div>

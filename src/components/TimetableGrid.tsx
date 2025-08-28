@@ -90,7 +90,7 @@ export default function TimetableGrid({
                 <SelectTrigger className="w-32">
                   <SelectValue placeholder="Select class" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="text-blue-600">
                   <SelectItem value="Nursery">Nursery</SelectItem>
                   <SelectItem value="LKG">LKG</SelectItem>
                   <SelectItem value="UKG">UKG</SelectItem>
@@ -127,7 +127,10 @@ export default function TimetableGrid({
                     <th key={`period-${index + 1}`} className={`border border-gray-300 px-2 py-3 text-center text-xs font-semibold uppercase tracking-wider min-w-24 ${period.title === "Break" ? "bg-orange-50 text-orange-800" : period.title === "Break 2" ? "bg-blue-50 text-blue-800" : "text-gray-900"}`}>
                       <div className="flex flex-col">
                         <span>{period.title}</span>
-                        <span className={`text-xs font-normal ${period.title === "Break" ? "text-orange-600" : period.title === "Break 2" ? "text-blue-600" : "text-gray-500"}`}>{period.time}</span>
+                        <span className={`text-xs font-normal mb-2 ${period.title === "Break" ? "text-orange-600" : period.title === "Break 2" ? "text-blue-600" : "text-gray-500"}`}>
+                          {period.time}
+                        </span>
+
                       </div>
                     </th>
                   ))}

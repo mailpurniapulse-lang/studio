@@ -287,8 +287,8 @@ export function Timetable() {
                           <Label className="text-xs">After Period</Label>
                           <Select onValueChange={(val) => setBreak1({...break1, afterPeriodId: val})} value={break1.afterPeriodId}>
                               <SelectTrigger><SelectValue placeholder="None" /></SelectTrigger>
-                              <SelectContent>
-                                  <SelectItem value="none">None</SelectItem>
+                              <SelectContent >
+                                  <SelectItem  value="none">None</SelectItem>
                                   {periods.map(p => <SelectItem key={`b1-${p.id}`} value={String(p.id)}>{p.id}</SelectItem>)}
                               </SelectContent>
                           </Select>

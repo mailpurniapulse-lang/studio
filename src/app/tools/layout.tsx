@@ -10,17 +10,6 @@ export default function ToolsLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-    // Check if the current path is /tools/weekly
-  const isWeeklyTool = typeof window !== 'undefined' && window.location.pathname.includes('/tools/weekly');
-
-  // If it's the weekly tool, render without the container constraints
-  if (isWeeklyTool) {
-    return 
-      <div className="w-full max-w-5xl mx-auto px-4 md:px-8">
-        children;</div>
-  }
-
   return (
     <section className="flex flex-col items-center w-full min-h-screen bg-secondary/30 py-8 px-4 md:px-12">
       <div className="w-full max-w-5xl mx-auto">
@@ -42,6 +31,13 @@ export default function ToolsLayout({
               🔒 <span className="font-medium text-primary">Premium Tool:</span> Weekly Timetable — unlock advanced scheduling features with a free account.
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* Responsive children container */}
+      <div className="w-full overflow-x-auto px-4 md:px-8">
+        <div className="min-w-[1000px] max-w-5xl mx-auto">
+          {children}
         </div>
       </div>
     </section>
