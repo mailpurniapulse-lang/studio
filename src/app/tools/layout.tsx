@@ -10,6 +10,15 @@ export default function ToolsLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+    // Check if the current path is /tools/weekly
+  const isWeeklyTool = typeof window !== 'undefined' && window.location.pathname.includes('/tools/weekly');
+
+  // If it's the weekly tool, render without the container constraints
+  if (isWeeklyTool) {
+    return children;
+  }
+
   return (
     <section className="flex flex-col items-center w-full min-h-screen bg-secondary/30 py-8 px-4 md:px-12">
       <div className="w-full max-w-5xl mx-auto">
@@ -32,9 +41,6 @@ export default function ToolsLayout({
             </p>
           </div>
         </div>
-      </div>
-      <div className="w-full max-w-5xl mx-auto px-4 md:px-8">
-        {children}
       </div>
     </section>
   );
