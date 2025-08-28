@@ -4,7 +4,7 @@ author: "Kshankar"
 date: "2025-08-28"
 tags: ["भारत के नवीनतम डिजिटल हेल्थकेयर प्लेटफॉर्म"]
 description: "भारत के नवीनतम डिजिटल हेल्थकेयर प्लेटफॉर्म को डाउनलोड और उपयोग करना सीखें। इस लेख में हम आपको बताएंगे कि कैसे आप अपने स्वास्थ्य का ध्यान रख सकते हैं और इस प्लेटफॉर्म का उपयोग कर सकते हैं।"
-image: "/img/blog/how-to-download-and-use-india's-latest-digital-healthcare-platform-hero.jpg"
+image: "/img/blog/how-to-download-and-use-india's-latest-digital-healthcare-platform-image.jpg"
 imageHint: "पेशेवर इमेज प्रस्तुत करता है भारत के नवीनतम डिजिटल हेल्थकेयर प्लेटफॉर्म"
 latest: true
 readingTime: "10 min read"
