@@ -4,7 +4,7 @@ author: "Kshankar"
 date: "2025-08-28"
 tags: ["How to Download and Use India's Latest Digital Healthcare Platform"]
 description: "Learn how to download and use India's latest digital healthcare platform, revolutionizing the way you access healthcare services in India. Get started today! 🚀"
-image: "/img/blog/how-to-download-and-use-india's-latest-digital-healthcare-platform-image.jpg"
+image: "/img/blog/how.jpg"
 imageHint: "Professional image representing How to Download and Use India's Latest Digital Healthcare Platform"
 latest: true
 readingTime: "10 min read"
