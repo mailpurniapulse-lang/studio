@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 194 67% 94%;
+    --foreground: 224 71% 4%;
+    --card: 194 67% 98%;
+    --card-foreground: 224 71% 4%;
+    --popover: 194 67% 98%;
+    --popover-foreground: 224 71% 4%;
+    --primary: 197 78% 52%;
+    --primary-foreground: 356 100% 99%;
+    --secondary: 195 72% 88%;
+    --secondary-foreground: 224 71% 4%;
+    --muted: 195 72% 88%;
+    --muted-foreground: 224 71% 25%;
+    --accent: 47 89% 60%;
+    --accent-foreground: 48 96% 25%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 197 50% 80%;
+    --input: 197 50% 85%;
+    --ring: 197 78% 52%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+      /* Subject colors from design */
+  --subject-science: hsl(122.4 39.4% 49.2%);
+  --subject-math: hsl(207.4 90.0% 54.1%);
+  --subject-hindi: hsl(14.3 87.4% 53.3%);
+  --subject-english: hsl(291.3 64.2% 42.7%);
+  --subject-sanskrit: hsl(19.6 25.7% 36.5%);
+  --subject-urdu: hsl(340.0 82.2% 52.5%);
+  --subject-social: hsl(36.0 100% 50.0%);
+  --subject-computer: hsl(207.3 26.1% 43.9%);
+  --subject-pt: hsl(87.6 45.1% 57.1%);
+  --subject-pe: hsl(66.0 70.4% 64.1%);
+  --subject-history: hsl(45.0 93.4% 51.8%);
+  --subject-political: hsl(231.0 48.4% 48.2%);
+  --subject-geography: hsl(174.0 100% 29.0%);
+  --subject-economics: hsl(262.1 52.0% 46.9%);
+  --subject-physics: hsl(187.0 100% 42.2%);
+  --subject-chemistry: hsl(4.0 90.6% 58.0%);
+  --subject-biology: hsl(122.4 39.4% 49.2%);
+  --subject-music: hsl(340.0 82.2% 52.5%);
+  --subject-arts: hsl(14.3 87.4% 53.3%);
+  }
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 194 67% 94%;
+    --card: 224 71% 6%;
+    --card-foreground: 194 67% 94%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 194 67% 94%;
+    --primary: 197 78% 52%;
+    --primary-foreground: 356 100% 99%;
+    --secondary: 224 71% 10%;
+    --secondary-foreground: 194 67% 94%;
+    --muted: 224 71% 10%;
+    --muted-foreground: 194 67% 70%;
+    --accent: 47 89% 60%;
+    --accent-foreground: 48 96% 15%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 224 71% 15%;
+    --input: 224 71% 15%;
+    --ring: 197 78% 52%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  
+}
+
+
+.gogo{
+  font-size: 26px;
+  padding: 5px;
+  font-weight: 700;
+  text-align: center;
+  height: 90px;
+  vertical-align: middle;
+  color: #297fff;
+}
+  #start-time{
+  font-size: 22px;
+  padding-bottom: 1rem;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  color: #297fff;  }
+    #time-dropdown{
+  font-size: 22px;
+  padding-bottom: 1rem;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  color: #0056d6;  }
+/* Gradient card and hover effect for tools */
+.tool-card {
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0fff4 100%);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+  border: none;
+}
+.tool-card:hover {
+  background: linear-gradient(135deg, #a5b4fc 0%, #6ee7b7 100%);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px 0 rgba(80,80,200,0.12);
+}
+
+.tools-header {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.tools-desc {
+  font-size: 1.25rem;
+  color: #374151;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
+#navlinks {
+  color: #333;
+  transition: all 0.3s ease;
+  position: relative;
+  animation: fadeInUp 0.6s ease both;
+}
+
+/* Hover effect */
+#navlinks:hover {
+  color: #ff6a00;
+  transform: translateY(-2px);
+}
+
+/* Optional underline animation on hover */
+#navlinks::after {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #ff6a00;
+  transition: width 0.3s ease;
+}
+#navlinks button {
+  font-weight: 700;
+  font-size: 1.5rem !important; /* 18px */
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#navlinks button:hover {
+  color: #ff6a00;
+  transform: scale(1.05);
+}
+
+#navlinks:hover::after {
+  width: 100%;
+}
+  #brand {
+  padding: 10px;
+  font-size: 2.5rem; /* Bigger text */
+}
+
+/* Optional hover effect */
+#brand:hover {
+  color: #ff6a00;
+  transform: translateY(-2px);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 0.5in;
+  }
+  
+  body { 
+    font-size: 12px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .no-print { 
+    display: none !important; 
+  }
+  
+  #timetable-container table { 
+    width: 80% !important; 
+    page-break-inside: avoid; 
+  }
+  
+  #timetable-container th,
+  #timetable-container td { 
+    padding: 4px 2px !important; 
+    font-size: 10px !important; 
+  }
+  
+  /* Ensure colors print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* Subject color utilities */
+.bg-subject-science { background-color: var(--subject-science); }
+.bg-subject-math { background-color: var(--subject-math); }
+.bg-subject-hindi { background-color: var(--subject-hindi); }
+.bg-subject-english { background-color: var(--subject-english); }
+.bg-subject-sanskrit { background-color: var(--subject-sanskrit); }
+.bg-subject-urdu { background-color: var(--subject-urdu); }
+.bg-subject-social { background-color: var(--subject-social); }
+.bg-subject-computer { background-color: var(--subject-computer); }
+.bg-subject-pt { background-color: var(--subject-pt); }
+.bg-subject-pe { background-color: var(--subject-pe); }
+.bg-subject-history { background-color: var(--subject-history); }
+.bg-subject-political { background-color: var(--subject-political); }
+.bg-subject-geography { background-color: var(--subject-geography); }
+.bg-subject-economics { background-color: var(--subject-economics); }
+.bg-subject-physics { background-color: var(--subject-physics); }
+.bg-subject-chemistry { background-color: var(--subject-chemistry); }
+.bg-subject-biology { background-color: var(--subject-biology); }
+.bg-subject-music { background-color: var(--subject-music); }
+.bg-subject-arts { background-color: var(--subject-arts); }
