@@ -4,7 +4,7 @@ author: "kshankar"
 date: "2025-08-29"
 tags: ["electric vehicles in India", "new electric cars in India", "upcoming electric vehicles in India", "electric cars launching in India this month", "top electric vehicles in India 2023", "which electric car to buy in India", "what are the new electric vehicles in India", "how to choose the best electric vehicle in India", "green mobility in India", "eco-friendly transportation", "electric vehicle market in India", "sustainable cars in India"]
 description: "Discover the top 5 electric vehicle models releasing in India this month, along with their features, benefits, and pricing. Get ready to switch to eco-friendly transportation with our comprehensive guide to the best electric cars in India."
-image: "/img/blog/top-5-electric-vehicle-models-releasing-in-india-this-month-hero.jpg"
+image: "/img/blog/top-5.jpg"
 imageHint: "Professional image representing Top 5 Electric Vehicle Models Releasing in India This Month"
 latest: true
 readingTime: "10 min read"
