@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Business Listing Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px 20px; }
+    pre { background: #f4f4f4; padding: 15px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>📋 Business Listing Form</h1>
+  <form id="listingForm">
+    <label>Name</label><input type="text" id="name" required>
+    <label>Description</label><textarea id="description" required></textarea>
+    <label>Address</label><textarea id="address" required></textarea>
+    <label>Email</label><input type="email" id="email">
+    <label>Hours</label><input type="text" id="hours">
+    <label>Website</label><input type="text" id="website">
+    <label>Category</label><input type="text" id="category">
+    <label>Parking</label><input type="text" id="parking">
+    <label>Services</label><textarea id="services"></textarea>
+    <label>Subcategory</label><input type="text" id="subCategory">
+    <label>Image Path</label><input type="text" id="image">
+    <label>Image Hint</label><input type="text" id="imageHint">
+    <label>Phone</label><input type="text" id="phone">
+    <label>Additional Info</label><textarea id="extra"></textarea>
+    <button type="submit">Generate Markdown</button>
+  </form>
+
+  <h2>📄 Generated Markdown</h2>
+  <pre id="markdownOutput"></pre>
+
+  <script>
+    document.getElementById('listingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const md = `## ${name.value}
+
+**📍 Address:** ${address.value}  
+**📧 Email:** ${email.value}  
+**📞 Phone:** ${phone.value}  
+**🕒 Hours:** ${hours.value}  
+**🌐 Website:** ${website.value}  
+**🏷️ Category:** ${category.value}  
+**🅿️ Parking:** ${parking.value}  
+**🛎️ Services:** ${services.value}  
+**📚 Subcategory:** ${subCategory.value}  
+**🖼️ Image:** ${image.value}  
+**📝 Image Hint:** ${imageHint.value}
+
+---
+
+### 📝 Description  
+${description.value}
+
+---
+
+### ℹ️ Additional Information  
+${extra.value}
+`;
+
+      document.getElementById('markdownOutput').textContent = md;
+    });
+  </script>
+</body>
+</html>
