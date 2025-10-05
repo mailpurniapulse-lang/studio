@@ -13,7 +13,7 @@ seoKeywords: "Purnia airport latest updates, Purnia airport news, Bihar airport 
 featured: true
 ---
 
-# 🌟 Purnia Airport Takes Flight: Latest Updates on Bihar's Newest Aviation Hub 🌟
+# 🌟 Purnia Airport Takes Flight: Latest Updates on Bihar's Newest Aviation Hub 
 
 The wait is over for the residents of Seemanchal and surrounding regions! Purnia Airport, a long-anticipated project under the UDAN scheme, has officially commenced commercial operations, marking a significant milestone in Bihar's air connectivity landscape. This new aviation hub promises to revolutionize travel, trade, and economic growth in a crucial part of the state. 🎉
 
