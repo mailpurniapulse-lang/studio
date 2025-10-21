@@ -7,4 +7,7 @@
     "dev": "cd studio-main && npm install && npm run dev",
     "start": "cd studio-main && npm run start"
   }
+  ,"dependencies": {
+    "next": "^15.4.7"
+  }
 }
