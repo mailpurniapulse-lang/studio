@@ -7,7 +7,7 @@ description: "Discover the latest on Purnia Airport! Inaugurated by PM Modi, wit
 image: "/img/blog/pai.jpeg"
 imageHint: "Professional image representing Purnia Airport with an airplane"
 latest: true
-readingTime: "10 min read"
+readingTime: "12 min read"
 category: "Guide"
 seoKeywords: "Purnia airport latest updates, Purnia airport news, Bihar airport current events, Purnia flight schedule, IndiGo Purnia, Seemanchal connectivity"
 featured: true
