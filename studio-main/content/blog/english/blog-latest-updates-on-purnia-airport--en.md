@@ -4,7 +4,7 @@ author: "Kshankar"
 date: "2025-10-04"
 tags: ["Latest updates on Purnia airport", "Purnia news", "Bihar airports", "India updates", "civil aviation", "UDAN scheme"]
 description: "Discover the latest on Purnia Airport! Inaugurated by PM Modi, with new flights to Delhi, Kolkata, and Ahmedabad, Purnia is boosting regional connectivity and development."
-image: "/img/blog/pa.jpeg"
+image: "/img/blog/pai.jpeg"
 imageHint: "Professional image representing Purnia Airport with an airplane"
 latest: true
 readingTime: "10 min read"
