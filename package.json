@@ -1,0 +1,10 @@
+{
+  "name": "studio-root-helper",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "cd studio-main && npm ci && npm run build",
+    "dev": "cd studio-main && npm install && npm run dev",
+    "start": "cd studio-main && npm run start"
+  }
+}
